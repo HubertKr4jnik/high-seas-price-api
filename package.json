@@ -13,12 +13,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "chrome-aws-lambda": "^9.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "playwright-core": "^1.48.2"
-  },
-  "devDependencies": {
-    "playwright": "^1.48.2"
   }
 }
