@@ -1,5 +1,6 @@
 import express, { json } from "express";
-import { chromium } from "playwright-core";
+import playwright from "playwright-core"
+import chromium from "chrome-aws-lambda";
 import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
@@ -11,7 +12,7 @@ app.use(cors())
 app.get("/", (req, res) =>{
 
     (async () => {
-        const browser = await chromium.launch({headless: true});
+      const browser = await playwright.chromium.launch();
     
         const context = await browser.newContext();
         
