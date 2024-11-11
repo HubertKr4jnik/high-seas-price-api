@@ -1,6 +1,5 @@
 import express, { json } from "express";
-import playwright from "playwright-core"
-import chromium from "chrome-aws-lambda";
+import playwright from "playwright-aws-lambda"
 import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
@@ -9,10 +8,10 @@ const app = express();
 
 app.use(cors())
 
-app.get("/", (req, res) =>{
+app.get("/api", (req, res) =>{
 
     (async () => {
-      const browser = await playwright.chromium.launch();
+      const browser = await playwright.launchChromium();
     
         const context = await browser.newContext();
         
@@ -43,14 +42,16 @@ app.get("/", (req, res) =>{
           const shopItems = JSON.parse(rawData.value)
 
           res.json({items: shopItems})
+
+          await browser.close();
     })();
 })
 
-app.get("/:name", (req, res) =>{
+app.get("/api/:name", (req, res) =>{
     (async () => {
         const itemName = req.params.name;
 
-        const browser = await playwright.chromium.launch();
+        const browser = await playwright.launchChromium();
     
         const context = await browser.newContext();
         
@@ -85,6 +86,8 @@ app.get("/:name", (req, res) =>{
           console.log(requestedItem)
 
           res.json({item: requestedItem})
+
+          await browser.close();
     })();
 })
 
