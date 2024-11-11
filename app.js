@@ -1,5 +1,5 @@
 import express, { json } from "express";
-import { chromium } from "playwright";
+import { chromium } from "playwright-core";
 import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
@@ -91,4 +91,4 @@ app.listen(5000, ()=>{
     console.log("listening on port 5000")
 })
 
-module.exports = app;
+export default app;
