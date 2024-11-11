@@ -50,7 +50,7 @@ app.get("/:name", (req, res) =>{
     (async () => {
         const itemName = req.params.name;
 
-        const browser = await chromium.launch({headless: true});
+        const browser = await playwright.chromium.launch();
     
         const context = await browser.newContext();
         
