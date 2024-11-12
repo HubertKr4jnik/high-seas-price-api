@@ -11,7 +11,7 @@ app.use(cors())
 app.get("/api", (req, res) =>{
 
     (async () => {
-      const browser = await playwright.launchChromium();
+      const browser = await playwright.launchChromium({headless: true});
     
         const context = await browser.newContext();
         
@@ -51,7 +51,7 @@ app.get("/api/:name", (req, res) =>{
     (async () => {
         const itemName = req.params.name;
 
-        const browser = await playwright.launchChromium();
+        const browser = await playwright.launchChromium({headless: true});
     
         const context = await browser.newContext();
         
