@@ -60,7 +60,7 @@ An example response looks like this:
 
 ## Live demo
 
-A working demo of this API is avalible under this url: <a href=""></a>
+A working demo of this API is avalible under this url: <a href="https://hubert-krajnik.hackclub.app/high-seas-shop-api-demo/">https://hubert-krajnik.hackclub.app/high-seas-shop-api-demo/</a>
 <hr/>
 
 <!-- MARKDOWN LINKS & IMAGES -->
