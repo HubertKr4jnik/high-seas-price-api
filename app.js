@@ -12,9 +12,9 @@ app.get("/api", (req, res) =>{
 
     (async () => {
       const browser = await playwright.launchChromium({headless: true});
-    
+
         const context = await browser.newContext();
-        
+
         context.addCookies([
             {
               name: "hs-session",
@@ -23,25 +23,25 @@ app.get("/api", (req, res) =>{
               domain: "highseas.hackclub.com",
             },
           ]);
-          
+
           const page = await context.newPage();
           await page.goto("https://highseas.hackclub.com/shop", {
             waitUntil: "networkidle",
           });
-    
+
           const storage = await context.storageState();
           const localStorage = storage.origins[0].localStorage;
-    
+
           const rawData = localStorage.find((element) => element.name == "cache.shopItems")
 
           if (!rawData) {
             res.status(404).json({error: "Could not fetch shop items"})
             return;
           }
-    
+
           const shopItems = JSON.parse(rawData.value)
 
-          res.json({items: shopItems})
+          res.json(shopItems)
 
           await browser.close();
     })();
@@ -52,9 +52,9 @@ app.get("/api/:name", (req, res) =>{
         const itemName = req.params.name;
 
         const browser = await playwright.launchChromium({headless: true});
-    
+
         const context = await browser.newContext();
-        
+
         context.addCookies([
             {
               name: "hs-session",
@@ -63,29 +63,27 @@ app.get("/api/:name", (req, res) =>{
               domain: "highseas.hackclub.com",
             },
           ]);
-          
+
           const page = await context.newPage();
           await page.goto("https://highseas.hackclub.com/shop", {
             waitUntil: "networkidle",
           });
-    
+
           const storage = await context.storageState();
           const localStorage = storage.origins[0].localStorage;
-    
+
           const rawData = localStorage.find((element) => element.name == "cache.shopItems")
 
           if (!rawData) {
             res.status(404).json({error: "Could not fetch shop items"})
             return;
           }
-    
+
           const shopItems = JSON.parse(rawData.value)
 
           const requestedItem = shopItems["value"].find((element) => element.name == itemName);
 
-          console.log(requestedItem)
-
-          res.json({item: requestedItem})
+          res.json(requestedItem)
 
           await browser.close();
     })();
