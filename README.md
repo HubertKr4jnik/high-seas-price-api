@@ -17,7 +17,7 @@
 <!-- API USAGE INSTRUCTIONS -->
 ## Usage instructions
 
-The API has 2 endpionts:
+The API has 2 endpoints:
 
 * https://high-seas-shop-api.hubert-krajnik.hackclub.app/api/
 
