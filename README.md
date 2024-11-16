@@ -12,6 +12,8 @@
     <br />
 </div>
 
+![Demo image](https://github.com/user-attachments/assets/5c6cf9c6-b1a5-4dfc-bb51-448bef1916f6)
+
 <!-- API USAGE INSTRUCTIONS -->
 ## Usage instructions
 
@@ -23,6 +25,7 @@ The API has 2 endpionts:
 
 The first one returns data about all items and the second returns data about an item that you specified in the place of "item-name". The item name should be the same an the one shown in the <a href="https://highseas.hackclub.com/shop">High Seas Store</a>. E.g. "iPad"
 
+![Item naming](https://github.com/user-attachments/assets/5598271e-ed6a-42a8-a985-fb2b792635d5)
 
 An example response looks like this:
 ```
